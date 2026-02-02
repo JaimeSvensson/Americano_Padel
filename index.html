@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+
+  <title>Padel Americano</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__row">
+      <h1>Padel Americano</h1>
+      <button id="btnReset" class="btn btn--ghost" title="Nollställ allt">Nollställ</button>
+    </div>
+    <p class="muted">Offline • 1 mobil håller koll (v1)</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Inställningar</h2>
+      <div class="grid">
+        <label class="field">
+          <span>Antal banor</span>
+          <input id="courts" type="number" min="1" max="8" value="1" />
+        </label>
+
+        <label class="field">
+          <span>Maxpoäng per match</span>
+          <input id="maxPoints" type="number" min="5" max="99" value="21" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="btnSaveSettings" class="btn">Spara inställningar</button>
+      </div>
+      <p class="muted">
+        Poängregel (Americano): Om matchen slutar 21–15 får varje spelare i vinnarlaget +21 och varje spelare i förlorarlaget +15.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Spelare</h2>
+      <div class="row">
+        <input id="playerName" class="input" placeholder="Skriv namn (t.ex. Jaime)" maxlength="24" />
+        <button id="btnAddPlayer" class="btn">Lägg till</button>
+      </div>
+      <ul id="playersList" class="list"></ul>
+
+      <div class="row row--between">
+        <button id="btnShuffle" class="btn btn--ghost">Blanda ordning</button>
+        <button id="btnStartRound" class="btn btn--primary">Skapa nästa rond</button>
+      </div>
+
+      <p id="playersHint" class="muted"></p>
+    </section>
+
+    <section class="card">
+      <h2>Aktuell rond</h2>
+      <div id="roundArea" class="stack"></div>
+      <p class="muted">Tips: För fler än 4×banor blir vissa vilande per rond (v1: enkel rotation).</p>
+    </section>
+
+    <section class="card">
+      <h2>Tabell</h2>
+      <div id="standingsArea"></div>
+    </section>
+
+    <section class="card">
+      <h2>Matchhistorik</h2>
+      <div id="historyArea"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
